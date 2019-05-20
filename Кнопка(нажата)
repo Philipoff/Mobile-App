@@ -1,0 +1,23 @@
+from kivy.app import App
+from kivy.uix.button import Button
+from kivy.uix.codeinput import CodeInput
+from kivy.config import Config
+
+
+class MyApp(App):
+    def build(self):
+        Config.set('graphics', 'resizeble', False)
+        Config.set('graphics', 'widht', 600)
+        Config.set('graphics', 'height', 400)
+        return Button(text='Кнопка',
+                      font_size=16,
+                      on_press=self.btn_press,
+                      background_color=[0.41, 0.23, 0.116, 1],
+                      background_normal='')
+
+    def btn_press(self, instance):
+        print('Кнопка нажата')
+        instance.text = 'Я нажата'
+
+
+MyApp().run()
